@@ -17,12 +17,20 @@ import { AuthResolver } from './auth.resolver';
     JwtModule.registerAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        secret: configService.get<string>('JWT_SECRET'),
-        signOptions: {
-          expiresIn: configService.get<string>('JWT_EXPIRATION', '1h'),
-        },
-      }),
+      useFactory: (configService: ConfigService) => {
+        const expiration = configService.get<string>('JWT_EXPIRATION', '1h');
+        return {
+          secret: configService.get<string>('JWT_SECRET'),
+          signOptions: {
+            expiresIn:
+              expiration.includes('h') ||
+              expiration.includes('m') ||
+              expiration.includes('s')
+                ? expiration
+                : `${expiration}s`,
+          },
+        };
+      },
     }),
   ],
   providers: [AuthService, JwtStrategy, AuthResolver],

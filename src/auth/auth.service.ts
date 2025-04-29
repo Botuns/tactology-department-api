@@ -5,7 +5,7 @@ import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 import { LoginInput } from './dto/login.input';
 import { JwtPayload } from 'src/auth/dto/jwt-payload.interface';
-import { GraphQLForbiddenException } from 'src/common/exceptions/custom-exceptions';
+// import { GraphQLForbiddenException } from 'src/common/exceptions/custom-exceptions';
 // import { JwtPayload } from './dto/jwt-payload.interface';
 
 @Injectable()
