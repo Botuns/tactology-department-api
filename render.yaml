@@ -1,31 +1,6 @@
-# services:
-#   - type: web
-#     name: department-api
-#     env: node
-#     region: ohio
-#     plan: free
-#     buildCommand: npm install && npm run build
-#     startCommand: npm run start:prod
-#     healthCheckPath: /
-#     envVars:
-#       - key: NODE_ENV
-#         value: production
-#       - key: PORT
-#         value: 10000
-#       - key: DB_SSL
-#         value: true
-#       - key: JWT_SECRET
-#         fromGroup: department-api-secrets
-#       - key: JWT_EXPIRATION
-#         value: 3600
-#       - key: DB_HOST
-#         fromGroup: department-api-secrets
-#       - key: DB_PORT
-#         fromGroup: department-api-secrets
-#       - key: DB_USERNAME
-#         fromGroup: department-api-secrets
-#       - key: DB_PASSWORD
-#         fromGroup: department-api-secrets
-#       - key: DB_DATABASE
-#         fromGroup: department-api-secrets
-
+services:
+  - type: web
+    name: tactology-department-api
+    env: node
+    buildCommand: npm install -g pnpm && pnpm install && pnpm rebuild bcrypt --build-from-source && pnpm run build
+    startCommand: pnpm run start:prod
