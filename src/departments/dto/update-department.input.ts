@@ -1,9 +1,9 @@
-import { Field, ID, InputType } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 import { IsNotEmpty, MinLength, IsNumber, IsPositive } from 'class-validator';
 
 @InputType()
 export class UpdateDepartmentInput {
-  @Field(() => ID)
+  @Field(() => Int)
   @IsNumber()
   @IsPositive()
   id: number;

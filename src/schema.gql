@@ -67,7 +67,7 @@ type SubDepartment {
 }
 
 input UpdateDepartmentInput {
-  id: ID!
+  id: Int!
   name: String!
 }
 
