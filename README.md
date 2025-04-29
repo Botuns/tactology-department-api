@@ -225,7 +225,7 @@ mutation {
 }
 ```
 
-## Pagination (Bonus)
+## Pagination 
 
 ```graphql
 query {
@@ -242,4 +242,4 @@ query {
 
 ## License
 
-This project is licensed under the MIT License.
+This project is authored by Olajide AbdulQahar and licensed under the MIT License.
